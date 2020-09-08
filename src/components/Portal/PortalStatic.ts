@@ -16,32 +16,32 @@ let key = 1;
 class PortalStatic {
   /**
    * 添加节点
-   * @param content 
-   * @param cb 
+   * @param content
+   * @param cb
    */
   static add(content: React.ReactNode, cb?: Callback) {
     event.emit(ADD_TYPE, { id: key++, el: content, cb });
-    return key
+    return key;
   }
   /**
    * 移除节点
-   * @param id 
+   * @param id
    */
   static remove(id: number, cb?: Callback) {
-    event.emit(REMOVE_TYPE, { id, cb })
+    event.emit(REMOVE_TYPE, { id, cb });
   }
-  
+
   /**
    * 更新节点
-   * @param key 
-   * @param el 
+   * @param key
+   * @param el
    */
   static update(id: number, content: React.ReactNode) {
     if (id >= key) {
-      console.log('更新操作的节点ID值不存在')
+      console.log('更新操作的节点ID值不存在');
       return;
     }
-    event.emit(UPDATE_TYPE, { id, el: content })
+    event.emit(UPDATE_TYPE, { id, el: content });
   }
 }
 
